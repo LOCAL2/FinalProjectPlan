@@ -17,7 +17,7 @@ export default function MemberPage() {
       role: "Developer & Hardware Specialist",
       image: "/images/tam.jpg",
       description: "รับผิดชอบการพัฒนาโปรแกรมและเชื่อมต่อฮาร์ดแวร์",
-             skills: ["เก็บท่อม", "เก็บใบจาก","ESP32 Programming", "Sensor Integration", "Circuit Design"]
+             skills: ["ESP32 Programming", "Sensor Integration", "Circuit Design"]
     },
     {
       name: "นภัสพล ผู้แสนสะอาด",
@@ -25,16 +25,16 @@ export default function MemberPage() {
       role: "Project Leader & System Architect",
       image: "/images/stang.jpg",
       description: "ผู้นำทีมและออกแบบระบบโดยรวมของโปรเจค",
-             skills: ["Project Management", "สูบใบจาก", "เคี้ยวท่อม"],
+             skills: ["Project Management"],
        highlight: true
     },
     {
       name: "ภูมิรพี พรหมมาศ",
       nickname: "ภูมิ",
-      role: "เตรียมใบจากให้หน้าตัง",
+      role: "รองที่ปรึกษา",
       image: "/images/phoom.jpg",
       description: "ออกแบบและพัฒนาส่วนติดต่อผู้ใช้",
-             skills: ["เก็บท่อม", "เก็บใบจาก"]
+      skills: ["ให้คำปรึกษา"]
     }
   ];
 
