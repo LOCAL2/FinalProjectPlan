@@ -63,10 +63,10 @@ export default function EquipmentPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-              Project Equipment
+              อุปกรณ์โปรเจค
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Detailed specifications of the hardware and technology used in our Smoke Detector
+              รายละเอียดอุปกรณ์และเทคโนโลยีที่ใช้ในการพัฒนาระบบตรวจจับควันบุหรี่
             </p>
           </div>
         </div>

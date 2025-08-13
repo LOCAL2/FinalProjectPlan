@@ -39,57 +39,57 @@ export default function ExpensesPage() {
   const expenseItems = [
     {
       id: 1,
-      name: "ESP32 Development Board",
-      nameEn: "ESP32",
+      name: "บอร์ดพัฒนา ESP32",
+      nameEn: "ESP32 Development Board",
       quantity: 1,
       pricePerUnit: 350,
       image: "/images/esp32.jpg",
-      category: "Microcontroller"
+      category: "ไมโครคอนโทรลเลอร์"
     },
     {
       id: 2,
-      name: "MQ-2 Gas Sensor",
-      nameEn: "MQ-2 Sensor",
+      name: "เซ็นเซอร์ตรวจจับก๊าซ MQ-2",
+      nameEn: "MQ-2 Gas Sensor",
       quantity: 1,
       pricePerUnit: 120,
       image: "/images/mq2.jpg",
-      category: "Sensor"
+      category: "เซ็นเซอร์"
     },
     {
       id: 3,
-      name: "MQ-135 Air Quality Sensor",
-      nameEn: "MQ-135 Sensor",
+      name: "เซ็นเซอร์คุณภาพอากาศ MQ-135",
+      nameEn: "MQ-135 Air Quality Sensor",
       quantity: 1,
       pricePerUnit: 150,
       image: "/images/mq135.jpg",
-      category: "Sensor"
+      category: "เซ็นเซอร์"
     },
     {
       id: 4,
-      name: "LCD TFT Display 2.4 inch",
-      nameEn: "LCD TFT Display",
+      name: "หน้าจอ LCD TFT 2.4 นิ้ว",
+      nameEn: "LCD TFT Display 2.4 inch",
       quantity: 1,
       pricePerUnit: 280,
       image: "/images/lcd-tft.jpg",
-      category: "Display"
+      category: "จอแสดงผล"
     },
     {
       id: 5,
-      name: "Breadboard และสายจัมเปอร์",
+      name: "เบรดบอร์ดและสายจัมเปอร์",
       nameEn: "Breadboard & Jumper Wires",
       quantity: 1,
       pricePerUnit: 80,
       image: "/images/breadboard.jpg",
-      category: "Accessories"
+      category: "อุปกรณ์เสริม"
     },
     {
       id: 6,
-      name: "Resistors Set",
-      nameEn: "Resistors",
+      name: "ชุดตัวต้านทาน",
+      nameEn: "Resistors Set",
       quantity: 1,
       pricePerUnit: 50,
       image: "/images/resistors.jpg",
-      category: "Components"
+      category: "ชิ้นส่วนอิเล็กทรอนิกส์"
     }
   ];
 
@@ -105,11 +105,11 @@ export default function ExpensesPage() {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Microcontroller': 'from-green-500 to-emerald-500',
-      'Sensor': 'from-orange-500 to-red-500',
-      'Display': 'from-blue-500 to-indigo-500',
-      'Accessories': 'from-purple-500 to-pink-500',
-      'Components': 'from-yellow-500 to-orange-500'
+      'ไมโครคอนโทรลเลอร์': 'from-green-500 to-emerald-500',
+      'เซ็นเซอร์': 'from-orange-500 to-red-500',
+      'จอแสดงผล': 'from-blue-500 to-indigo-500',
+      'อุปกรณ์เสริม': 'from-purple-500 to-pink-500',
+      'ชิ้นส่วนอิเล็กทรอนิกส์': 'from-yellow-500 to-orange-500'
     };
     return colors[category] || 'from-gray-500 to-gray-600';
   };
@@ -159,10 +159,6 @@ export default function ExpensesPage() {
       <section className="py-16 bg-gradient-to-br from-slate-900 via-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-300 text-sm font-medium mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-              Financial Report
-            </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
             รายการค่าใช้จ่าย
             </h1>
@@ -221,11 +217,11 @@ export default function ExpensesPage() {
                       <div className="flex items-center space-x-3">
                         <div className="flex-shrink-0">
                           <div className={`w-10 h-10 bg-gradient-to-r ${getCategoryColor(item.category)} rounded-lg flex items-center justify-center text-white text-lg`}>
-                            {item.category === 'Microcontroller' && '🔧'}
-                            {item.category === 'Sensor' && '📡'}
-                            {item.category === 'Display' && '📺'}
-                            {item.category === 'Accessories' && '🔌'}
-                            {item.category === 'Components' && '⚡'}
+                            {item.category === 'ไมโครคอนโทรลเลอร์' && '🔧'}
+                            {item.category === 'เซ็นเซอร์' && '📡'}
+                            {item.category === 'จอแสดงผล' && '📺'}
+                            {item.category === 'อุปกรณ์เสริม' && '🔌'}
+                            {item.category === 'ชิ้นส่วนอิเล็กทรอนิกส์' && '⚡'}
                           </div>
                         </div>
                         <div>
@@ -289,11 +285,11 @@ export default function ExpensesPage() {
                       {index + 1}
                     </span>
                     <div className={`w-8 h-8 bg-gradient-to-r ${getCategoryColor(item.category)} rounded-lg flex items-center justify-center text-white text-sm`}>
-                      {item.category === 'Microcontroller' && '🔧'}
-                      {item.category === 'Sensor' && '📡'}
-                      {item.category === 'Display' && '📺'}
-                      {item.category === 'Accessories' && '🔌'}
-                      {item.category === 'Components' && '⚡'}
+                      {item.category === 'ไมโครคอนโทรลเลอร์' && '🔧'}
+                      {item.category === 'เซ็นเซอร์' && '📡'}
+                      {item.category === 'จอแสดงผล' && '📺'}
+                      {item.category === 'อุปกรณ์เสริม' && '🔌'}
+                      {item.category === 'ชิ้นส่วนอิเล็กทรอนิกส์' && '⚡'}
                     </div>
                   </div>
                   <span className={`px-2 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${getCategoryColor(item.category)} text-white`}>
@@ -359,10 +355,6 @@ export default function ExpensesPage() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-300 text-sm font-medium mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-              Total Amount
-            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
               ยอดรวมค่าใช้จ่าย
             </h2>
@@ -374,7 +366,7 @@ export default function ExpensesPage() {
                 <CountUp
                   start={0}
                   end={grandTotal}
-                  duration={2.5}
+                  duration={2.2}
                   separator=","
                   prefix="฿"
                   preserveValue

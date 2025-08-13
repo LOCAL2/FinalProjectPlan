@@ -15,7 +15,7 @@ export default function MemberPage() {
       name: "วรเดช พันธ์พืช",
       nickname: "ทาม",
       role: "Developer & Hardware Specialist",
-      image: "/images/tam.jpg",
+      image: "/images/Time.jpg",
       description: "รับผิดชอบการพัฒนาโปรแกรมและเชื่อมต่อฮาร์ดแวร์",
              skills: ["ESP32 Programming", "Sensor Integration", "Circuit Design"]
     },
@@ -23,7 +23,7 @@ export default function MemberPage() {
       name: "นภัสพล ผู้แสนสะอาด",
       nickname: "สตางค์",
       role: "Project Leader & System Architect",
-      image: "/images/stang.jpg",
+      image: "/images/Satang.jpg",
       description: "ผู้นำทีมและออกแบบระบบโดยรวมของโปรเจค",
              skills: ["Project Management"],
        highlight: true
@@ -32,7 +32,7 @@ export default function MemberPage() {
       name: "ภูมิรพี พรหมมาศ",
       nickname: "ภูมิ",
       role: "รองที่ปรึกษา",
-      image: "/images/phoom.jpg",
+      image: "/images/Poom.jpg",
       description: "ออกแบบและพัฒนาส่วนติดต่อผู้ใช้",
       skills: ["ให้คำปรึกษา"]
     }
@@ -40,15 +40,88 @@ export default function MemberPage() {
 
   return (
     <main className="min-h-screen pt-20">
+      {/* Custom CSS for Skateboard Animation */}
+      <style jsx>{`
+        @keyframes skateboard-orbit {
+          0% {
+            transform: rotate(0deg) translateX(70px) rotate(0deg);
+          }
+          25% {
+            transform: rotate(90deg) translateX(70px) rotate(-90deg);
+          }
+          50% {
+            transform: rotate(180deg) translateX(70px) rotate(-180deg);
+          }
+          75% {
+            transform: rotate(270deg) translateX(70px) rotate(-270deg);
+          }
+          100% {
+            transform: rotate(360deg) translateX(70px) rotate(-360deg);
+          }
+        }
+
+        @keyframes skateboard-wobble {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(2deg); }
+          75% { transform: rotate(-2deg); }
+        }
+
+        .skateboard-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 140px;
+          height: 140px;
+          pointer-events: none;
+          z-index: 20;
+        }
+
+        .special-glow img {
+          z-index: 1 !important;
+          position: relative !important;
+        }
+
+        .skateboard {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation: skateboard-orbit 5s linear infinite;
+        }
+
+        .skateboard::before {
+          content: '🛹';
+          position: absolute;
+          font-size: 18px;
+          top: -9px;
+          left: -9px;
+          animation: skateboard-wobble 0.5s ease-in-out infinite;
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes pulse-glow-orange {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.8), 0 0 60px rgba(249, 115, 22, 0.5);
+          }
+        }
+
+        .special-glow {
+          animation: pulse-glow-orange 2s ease-in-out infinite;
+        }
+      `}</style>
       {/* Header Section */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-              Meet Our Team
+              ทีมงาน
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              The talented individuals behind the Smoke Detector
+              พบกับทีมนักพัฒนาที่อยู่เบื้องหลังโปรเจค Smoke Detector
             </p>
           </div>
         </div>
@@ -108,22 +181,31 @@ export default function MemberPage() {
                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                  Project Leader
                </div>
-               <div className="relative w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-2 sm:border-4 border-orange-400 group-hover:shadow-2xl group-hover:shadow-orange-400/60 transition-all duration-500 mb-4 sm:mb-6">
-                {!imageErrors[1] ? (
-                  <Image
-                    src={members[1].image}
-                    alt={members[1].name + ' (' + members[1].nickname + ')'}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    onError={() => handleImageError(1)}
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-5xl">
-                    {members[1].nickname.charAt(0)}
-                  </div>
-                )}
-              </div>
+               <div className="relative mb-4 sm:mb-6">
+                 {/* Profile Image */}
+                 <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-2 sm:border-4 border-orange-400 special-glow relative z-10">
+                  {!imageErrors[1] ? (
+                    <Image
+                      src={members[1].image}
+                      alt={members[1].name + ' (' + members[1].nickname + ')'}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      onError={() => handleImageError(1)}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-5xl">
+                      {members[1].nickname.charAt(0)}
+                    </div>
+                  )}
+                 </div>
+
+                 {/* Skateboard Animation Container - Outside the image */}
+                 <div className="skateboard-container">
+                   <div className="skateboard"></div>
+                   <div className="skateboard" style={{ animationDelay: '-2.5s' }}></div>
+                 </div>
+               </div>
               <div className="text-center">
                 <div className="text-2xl font-extrabold text-white drop-shadow mb-2">{members[1].name}</div>
                 <div className="text-orange-400 font-bold text-xl mb-3">({members[1].nickname})</div>

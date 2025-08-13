@@ -1,17 +1,20 @@
 'use client';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { useScrollAnimations } from '@/hooks/useScrollAnimations';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Home() {
-  const { t } = useLanguage();
   useScrollAnimations();
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative overflow-hidden" style={{ zIndex: 1 }}>
+      {/* Background Gradient */}
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900" style={{ zIndex: -1 }}></div>
+
+
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-transparent via-transparent to-gray-50/20 dark:to-gray-900/20" style={{ zIndex: 10 }}>
         
         {/* Animated Background Elements - Responsive */}
         <div className="absolute inset-0">
@@ -21,7 +24,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="relative text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto" style={{ zIndex: 20 }}>
           {/* Main Title with Enhanced Design */}
           <div className="mb-8 animate-fade-in-up">
             <div className="inline-flex items-center justify-center mb-4">
@@ -46,7 +49,7 @@ export default function Home() {
           <div className="mb-8 sm:mb-12" data-animation="fade-in-up" data-delay="200ms">
             <div className="bg-gradient-to-r from-gray-800/60 via-gray-700/60 to-gray-800/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-600/40 shadow-2xl">
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 leading-relaxed">
-                {t('intelligentSystem')}
+                ระบบตรวจจับควันบุหรี่อัจฉริยะ
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 text-left">
@@ -86,55 +89,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-gray-800/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              คุณสมบัติเด่น
-            </h2>
-            <p className="text-xl text-gray-300">
-              ระบบตรวจจับควันบุหรี่อัจฉริยะที่มาพร้อมกับเทคโนโลยีล่าสุด
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Real-time Monitoring */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">การตรวจสอบแบบเรียลไทม์</h3>
-              <p className="text-gray-300">แสดงผลข้อมูลการตรวจจับควันบุหรี่แบบเรียลไทม์ผ่านหน้าจอ LCD TFT</p>
-            </div>
-
-            {/* High Accuracy */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">ความแม่นยำสูง</h3>
-              <p className="text-gray-300">ใช้เซ็นเซอร์ MQ-2 และ MQ-135 ที่มีความแม่นยำในการตรวจจับควันบุหรี่สูง</p>
-            </div>
-
-            {/* IoT Connectivity */}
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">เชื่อมต่อ IoT</h3>
-              <p className="text-gray-300">ใช้ ESP32 ที่รองรับการเชื่อมต่อ WiFi และ Bluetooth สำหรับการควบคุมระยะไกล</p>
             </div>
           </div>
         </div>

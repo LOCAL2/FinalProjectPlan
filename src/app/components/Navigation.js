@@ -3,22 +3,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLanguage } from '@/contexts/LanguageContext';
-import ThemeToggle, { SimpleThemeToggle } from '@/components/ThemeToggle';
-import LanguageToggle, { SimpleLanguageToggle } from '@/components/LanguageToggle';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useLanguage();
 
   const navItems = [
-    { name: t('home'), href: '/' },
-    { name: t('equipment'), href: '/equipment' },
-    { name: t('timeline'), href: '/timeline' },
-    { name: t('introduction'), href: '/introduction' },
-    { name: t('members'), href: '/member' },
-    { name: t('expenses'), href: '/expenses' },
+    { name: 'หน้าแรก', href: '/' },
+    { name: 'อุปกรณ์', href: '/equipment' },
+    { name: 'ไทม์ไลน์', href: '/timeline' },
+    { name: 'แนะนำ', href: '/introduction' },
+    { name: 'สมาชิก', href: '/member' },
+    { name: 'ค่าใช้จ่าย', href: '/expenses' },
   ];
 
   return (
@@ -59,19 +55,13 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* Desktop Controls */}
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
 
-          {/* Mobile Controls */}
-          <div className="md:hidden flex items-center space-x-2">
-            <SimpleLanguageToggle />
-            <SimpleThemeToggle />
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-orange-400 focus:outline-none focus:text-orange-400 transition-colors duration-300 p-2"
+              className="text-gray-300 hover:text-orange-400 focus:outline-none focus:text-orange-400 transition-colors duration-300"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
